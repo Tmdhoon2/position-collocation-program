@@ -20,7 +20,8 @@ int main(void) {
 
 	Sleep(500);
 
-	int p, x, z;
+	int p, x;
+	char z;
 
 re:;
 	printf("\n\n\n");
@@ -163,7 +164,7 @@ re:;
 			}
 		}
 
-		printf("   ┌  %d ┐  ", random[i]); //자리 출력
+		printf("   ┌  %2d ┐  ", random[i]); //자리 출력
 
 		Sleep(250);
 	}
@@ -173,33 +174,34 @@ re:;
 
 	for (int i = 0; i <= 72; i++) printf(" ");
 
-	printf("종료하시겠습니까?? [yes = 1, no = 0] : ");
+	printf("종료하시겠습니까?? [yes = Y, no = N] : ");
 
 gg:;
-	scanf("%d", &z);
+	scanf(" %c", &z);
 
 	printf("\n\n\n");
 
-	if (z == 0) {
+	switch (z) {
+	case 'N':
 		system("cls");
 		goto re;
-	}
-	else if (z == 1) {
+		break;
+	case 'Y':
 		for (int i = 0; i <= 82; i++) printf(" ");
 		printf("3초후에 종료합니다");
-		printf(".");
-		Sleep(1000);
-		printf(".");
-		Sleep(1000);
-		printf(".");
-		Sleep(1000);
+		for (int i = 0; i < 3; i++) {
+			printf(".");
+			Sleep(1000);
+		}
+		goto stop;
+		break;
 	}
-	else {
+	if (z != 'Y' || z != 'N') {
 		for (int i = 0; i <= 75; i++) printf(" ");
-		printf("다시 입력하세욧 [yes = 1, no = 0] : ");
+		printf("다시 입력하세요 [yes = Y, no = N] : ");
 		goto gg;
 	}
-
+stop:;
 	printf("\n\n\n");
 
 	system("pause");
