@@ -206,5 +206,7 @@ stop:;
 
 	system("pause");
 
+	printf("³¡!");
+
 	return 0;
 }
